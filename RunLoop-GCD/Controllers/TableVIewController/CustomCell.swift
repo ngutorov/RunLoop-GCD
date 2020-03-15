@@ -13,7 +13,7 @@ class CustomCell : UITableViewCell {
     let titleLabel : UILabel = {
         let title = UILabel()
         
-        title.textColor = .black
+        title.textColor = .systemGray
         title.font = UIFont.systemFont(ofSize: 16)
         title.textAlignment = .left
         

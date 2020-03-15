@@ -9,10 +9,18 @@
 import UIKit
 
 class RunLoopController: TableViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         self.cellImageAssignMode = .RunLoop
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setStatusBarColor(.lightGray)
     }
 }

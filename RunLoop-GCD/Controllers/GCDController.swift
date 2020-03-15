@@ -10,9 +10,17 @@ import UIKit
 
 class GCDController: TableViewController {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         self.cellImageAssignMode = .GCD
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setStatusBarColor(.lightGray)
     }
 }

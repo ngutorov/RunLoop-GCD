@@ -31,7 +31,7 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
                 return
             }
             
-            // RunLoop VS GCD.
+            // ********** RunLoop VS GCD **********
             switch self.cellImageAssignMode {
                 
             case .GCD:
@@ -50,13 +50,12 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
                     self.infoTextView.text = "Updating image data with CFRunLoopPerformBlock \n\n\(self.currentMainRunLoopMode())"
                 }
                 
-            case .None: fatalError("No mode!")
+            case .None: fatalError("No assign mode selected!")
             }
             
         }).resume()
         
         cell.setCellConstraints()
-        
         cell.titleLabel.text = "\(indexPath.row) - \(titleArray[indexPath.row])"
         
         tableView.separatorInset = UIEdgeInsets(top: 0, left: cell.contentView.frame.height + 15, bottom: 0, right: 0)

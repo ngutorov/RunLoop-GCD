@@ -37,11 +37,14 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     var myViewControllers: [UIViewController]!
     
     var freshLaunch = true
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.delegate = self
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1.00)], for: .normal)
+        UITabBar.appearance().tintColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1.00)
         
         myViewControllers = [runLoopTabVC, mainTabVC, gcdTabVC]
     }
