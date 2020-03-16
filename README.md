@@ -1,6 +1,6 @@
 # CF RunLoop  VS  GCD
 
-## Access Main Thread like a Boss! :sunglasses:
+## Access the Main Thread like a Boss! :sunglasses:
 
 Demo app you can play with and see the difference between using GCD dispatch_async approach versus CF RunLoop block execution on a Main Thread.
 
@@ -25,7 +25,6 @@ Two very different APIs but the trick is that Core Foundation approach with CFRu
                     cell.thumbnailImage.image = image
                 }
             }
-            
 ```
 
 
