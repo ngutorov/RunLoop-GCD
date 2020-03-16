@@ -7,7 +7,9 @@ Demo app you can play with and see the difference between using GCD dispatch_asy
 Two very different APIs but the trick is that Core Foundation approach with CFRunLoopPerformBlock gives us opportunity to choose certain RunLoop Mode we want to use for our block. Especially in case of scrolling TableView it makes big difference since all scrolling happens with UITrackingRunLoopMode.
 
 
+
 ```swift
+
 
             switch self.cellImageAssignMode {
                 
@@ -27,6 +29,7 @@ Two very different APIs but the trick is that Core Foundation approach with CFRu
             }
             
 ```
+
 
 
 Just scroll fast deep down to 2-4XXX cells and stop scrolling to see how "GCD" tab cells are still being assigned with images blinking VS "RunLoop" tab cells are being assigned with minimum visible UI lags.
