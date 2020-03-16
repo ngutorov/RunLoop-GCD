@@ -21,7 +21,7 @@ extension MainController {
             toItem: self.view,
             attribute: NSLayoutConstraint.Attribute.top,
             multiplier: 1,
-            constant: 60
+            constant: 70
         ).isActive = true
         
         NSLayoutConstraint(
