@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MainController {
+extension InfoController {
     
     func setTitleLabelConstraints() {
         

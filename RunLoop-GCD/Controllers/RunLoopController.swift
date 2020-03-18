@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RunLoopController: TableViewController {
+class RunLoopController: DemoTableViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

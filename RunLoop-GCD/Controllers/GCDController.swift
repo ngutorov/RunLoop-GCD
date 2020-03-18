@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GCDController: TableViewController {
+class GCDController: DemoTableViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

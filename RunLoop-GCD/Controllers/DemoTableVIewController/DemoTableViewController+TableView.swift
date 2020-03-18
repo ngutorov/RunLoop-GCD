@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension TableViewController: UITableViewDelegate, UITableViewDataSource {
+extension DemoTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
@@ -21,17 +21,17 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: CustomCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
+        let cell: DemoCustomCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DemoCustomCell
         
         // Download thumbnail image from URL.
         URLSession.shared.dataTask(with: NSURL(string: thumbnailUrlArray[indexPath.row])! as URL, completionHandler: { (data, response, error) -> Void in
             
             if error != nil {
-                print(error ?? "No Error")
+                print(error ?? "No Error description!")
                 return
             }
             
-            // ********** RunLoop VS GCD **********
+            // ********** CFRunLoop VS GCD **********
             switch self.cellImageAssignMode {
                 
             case .GCD:

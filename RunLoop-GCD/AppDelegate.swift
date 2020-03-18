@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // In iOS 13 setup is done in SceneDelegate
         } else {
             
-            let tabBarController = TabBarController()
+            let tabBarController = MainTabBarController()
             
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.backgroundColor = .white

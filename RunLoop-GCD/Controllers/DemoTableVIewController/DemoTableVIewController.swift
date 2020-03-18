@@ -10,7 +10,7 @@ import UIKit
 
 enum CellImageAssignMode { case RunLoop, GCD, None }
 
-class TableViewController: UIViewController {
+class DemoTableViewController: UIViewController {
     
     let infoTextView = UITextView()
     let resetButton = UIButton()
@@ -25,11 +25,21 @@ class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addTableView()
-        addInfoTextView()
-        addResetButton()
-    
-        getJsonData(withUrl: sourceURL)
+        self.view.backgroundColor = .lightGray
+        
+        if ConnectionCheck.isConnectedToNetwork() {
+            
+            addTableView()
+            addInfoTextView()
+            addResetButton()
+            getJsonData(withUrl: sourceURL)
+            
+        } else {
+            
+            showAlert(title: "No network connection!", message: "Please check your connection and restart the application.", showCancel: false, okLabel: "Try again") { [weak self] in
+                self?.viewDidLoad()
+            }
+        }
     }
     
     func addTableView() {
@@ -38,8 +48,9 @@ class TableViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(DemoCustomCell.self, forCellReuseIdentifier: "cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.showsVerticalScrollIndicator = false
         
         setTableViewConstraints()
     }
@@ -48,9 +59,14 @@ class TableViewController: UIViewController {
         
         self.view.addSubview(infoTextView)
         
-        infoTextView.frame = CGRect(x: 0, y: statusBarHeight, width: UIScreen.main.bounds.size.width, height: 95)
+        infoTextView.frame = CGRect(x: 0, y: statusBarHeight, width: UIScreen.main.bounds.size.width, height: 113)
+        infoTextView.layer.cornerRadius = 18
+        infoTextView.clipsToBounds = true
+        infoTextView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         infoTextView.backgroundColor = .lightGray
         infoTextView.textColor = .white
+        infoTextView.isEditable = false
+        infoTextView.isSelectable = false
         infoTextView.font = .systemFont(ofSize: 16)
         
         setInfoTextViewConstraints()
@@ -60,8 +76,8 @@ class TableViewController: UIViewController {
         
         self.view.addSubview(resetButton)
         
-        resetButton.layer.cornerRadius = 16
-        resetButton.frame = CGRect(x: UIScreen.main.bounds.size.width-100, y: statusBarHeight+48, width: 80, height: 32)
+        resetButton.layer.cornerRadius = 14
+        resetButton.frame = CGRect(x: UIScreen.main.bounds.size.width-100, y: statusBarHeight+47, width: 80, height: 34)
         resetButton.backgroundColor = .white
         resetButton.setTitleColor(.darkGray, for: .normal)
         resetButton.setTitle("Reset", for: .normal)

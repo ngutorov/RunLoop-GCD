@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension TableViewController {
+extension DemoTableViewController {
     
     func setTableViewConstraints() {
         

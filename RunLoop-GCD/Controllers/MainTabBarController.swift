@@ -8,14 +8,14 @@
 
 import UIKit
 
-class TabBarController: UITabBarController, UITabBarControllerDelegate {
+class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
-    lazy public var mainTabVC: MainController = {
-        let mainTabVC = MainController()
+    lazy public var infoTabVC: InfoController = {
+        let infoTabVC = InfoController()
         let title = ""
         let defaultImage = UIImage(named: "main")
-        mainTabVC.tabBarItem = UITabBarItem(title: title, image: defaultImage, tag: 0)
-        return mainTabVC
+        infoTabVC.tabBarItem = UITabBarItem(title: title, image: defaultImage, tag: 0)
+        return infoTabVC
     }()
     
     lazy public var runLoopTabVC: RunLoopController = {
@@ -43,10 +43,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         
         self.delegate = self
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1.00)], for: .normal)
-        UITabBar.appearance().tintColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1.00)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.gray], for: .selected)
+        UITabBar.appearance().tintColor = UIColor.darkGray
         
-        myViewControllers = [runLoopTabVC, mainTabVC, gcdTabVC]
+        myViewControllers = [runLoopTabVC, infoTabVC, gcdTabVC]
     }
     
     override func viewWillAppear(_ animated: Bool) {

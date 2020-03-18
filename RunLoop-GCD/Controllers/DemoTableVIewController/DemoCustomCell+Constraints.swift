@@ -1,5 +1,5 @@
 //
-//  CustomCell+Constraints.swift
+//  DemoCustomCell+Constraints.swift
 //  RunLoop-GCD
 //
 //  Created by Nikolay Gutorov on 3/12/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension CustomCell {
+extension DemoCustomCell {
     
     func setCellConstraints() {
         

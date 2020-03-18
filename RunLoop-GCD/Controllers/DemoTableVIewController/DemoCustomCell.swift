@@ -1,5 +1,5 @@
 //
-//  CustomCell.swift
+//  DemoCustomCell.swift
 //  RunLoop-GCD
 //
 //  Created by Nikolay Gutorov on 3/12/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomCell : UITableViewCell {
+class DemoCustomCell : UITableViewCell {
     
     let titleLabel : UILabel = {
         let title = UILabel()

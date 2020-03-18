@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainController: UIViewController {
+class InfoController: UIViewController {
     
     let aboutTextView = UITextView()
     let titleLabel = UILabel()
@@ -38,7 +38,7 @@ class MainController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.textColor = .systemGray
         titleLabel.font = .systemFont(ofSize: 20)
-        titleLabel.text = "CF RunLoop || GCD"
+        titleLabel.text = ""
         
         setTitleLabelConstraints()
     }
@@ -48,9 +48,11 @@ class MainController: UIViewController {
         self.view.addSubview(aboutTextView)
         
         aboutTextView.frame = CGRect(x: 10, y: 100, width: UIScreen.main.bounds.size.width-20, height: UIScreen.main.bounds.size.height-180)
-        aboutTextView.backgroundColor = .white
-        aboutTextView.textColor = .systemGray
         aboutTextView.showsVerticalScrollIndicator = false
+        aboutTextView.backgroundColor = .white
+        aboutTextView.isEditable = false
+        aboutTextView.isSelectable = false
+        aboutTextView.textColor = .systemGray
         aboutTextView.font = .systemFont(ofSize: 15)
         aboutTextView.text = """
         Demo app you can play with and see the difference between using GCD dispatch_async approach versus CF RunLoop block execution on a Main Thread.
@@ -59,15 +61,13 @@ class MainController: UIViewController {
         
         Especially in case of scrolling TableView it makes big difference since all scrolling happens with UITrackingRunLoopMode.
         
-        Just scroll fast deep down to 2-4XXX cells and stop scrolling to see how "GCD" tab cells are still being assigned with images blinking VS "RunLoop" tab cells are being assigned with minimum visible UI lags.
+        Just scroll fast deep down to 2-4XXX cells and stop scrolling to see how "GCD" tab cells are still being assigned with colored images blinking VS "RunLoop" tab cells are being assigned with minimum visible UI lags.
         
         Absolutely same simple and very long TableViews on the left and on the right loading data from a network.
         
         But left one updates image data with Core Foundation CFRunLoopPerformBlock using manually set UITrackingRunLoopMode.
         
         Right one updates image data using GCD API to access Main Thread, basically delegating RunLoop mode choice to Grand Central Dispatch.
-        
-        It's advisable to run the app on a real iPhone device.
         """
         
         setAboutTextViewConstraints()
