@@ -27,7 +27,7 @@ class InfoController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setStatusBarColor(.lightGray)
+        setStatusBarColor(.white)
     }
     
     func addTitleLabel() {

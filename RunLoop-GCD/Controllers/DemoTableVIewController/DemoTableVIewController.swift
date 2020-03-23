@@ -60,10 +60,14 @@ class DemoTableViewController: UIViewController {
         self.view.addSubview(infoTextView)
         
         infoTextView.frame = CGRect(x: 0, y: statusBarHeight, width: UIScreen.main.bounds.size.width, height: 113)
-        infoTextView.layer.cornerRadius = 18
-        infoTextView.clipsToBounds = true
-        infoTextView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         infoTextView.backgroundColor = .lightGray
+        infoTextView.clipsToBounds = false
+        infoTextView.layer.shadowColor = UIColor.black.cgColor
+        infoTextView.layer.shadowOpacity = 0.5
+        infoTextView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        infoTextView.layer.shadowRadius = 10.0
+        infoTextView.layer.shouldRasterize = true
+        infoTextView.layer.rasterizationScale = UIScreen.main.scale
         infoTextView.textColor = .white
         infoTextView.isEditable = false
         infoTextView.isSelectable = false
