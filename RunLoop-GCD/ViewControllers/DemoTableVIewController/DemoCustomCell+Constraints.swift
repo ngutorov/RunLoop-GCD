@@ -12,7 +12,7 @@ extension DemoCustomCell {
     
     func setCellConstraints() {
         
-        // MARK: thumbnailImage constarints:
+        // MARK: - thumbnailImage constarints:
         
         NSLayoutConstraint(
             item: thumbnailImage,
@@ -54,7 +54,7 @@ extension DemoCustomCell {
             constant: -5
         ).isActive = true
         
-        // MARK: titleLabel constarints:
+        // MARK: - titleLabel constarints:
         
         NSLayoutConstraint(
             item: titleLabel,

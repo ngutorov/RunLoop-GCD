@@ -1,5 +1,5 @@
 //
-//  MainController.swift
+//  InfoViewController.swift
 //  RunLoop-GCD
 //
 //  Created by Nikolay Gutorov on 3/11/20.
@@ -8,45 +8,52 @@
 
 import UIKit
 
-class InfoController: UIViewController {
+class InfoViewController: UIViewController {
     
     let aboutTextView = UITextView()
     let titleLabel = UILabel()
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
-        
-        addTitleLabel()
-        addAboutTextView()
+        prepareUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setStatusBarColor(.white)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+}
+
+//MARK: - Prepare UI
+
+extension InfoViewController {
+    
+    func prepareUI() {
+        
+        self.view.backgroundColor = .white
+        
+        addTitleLabel()
+        setTitleLabelConstraints()
+        
+        addAboutTextView()
+        setAboutTextViewConstraints()
+    }
+    
     func addTitleLabel() {
-        
         self.view.addSubview(titleLabel)
-        
         titleLabel.frame = CGRect(x: 10, y: 70, width: UIScreen.main.bounds.size.width-20, height: 20)
         titleLabel.textAlignment = .center
         titleLabel.textColor = .systemGray
         titleLabel.font = .systemFont(ofSize: 20)
         titleLabel.text = ""
-        
-        setTitleLabelConstraints()
     }
     
     func addAboutTextView() {
-        
         self.view.addSubview(aboutTextView)
-        
         aboutTextView.frame = CGRect(x: 10, y: 100, width: UIScreen.main.bounds.size.width-20, height: UIScreen.main.bounds.size.height-180)
         aboutTextView.showsVerticalScrollIndicator = false
         aboutTextView.backgroundColor = .white
@@ -69,7 +76,5 @@ class InfoController: UIViewController {
         
         Right one updates image data using GCD API to access Main Thread, basically delegating RunLoop mode choice to Grand Central Dispatch.
         """
-        
-        setAboutTextViewConstraints()
     }
 }

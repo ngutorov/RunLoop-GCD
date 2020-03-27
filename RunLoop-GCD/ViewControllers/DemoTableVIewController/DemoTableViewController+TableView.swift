@@ -1,5 +1,5 @@
 //
-//  TableViewController+TableView.swift
+//  DemoTableViewController+TableView.swift
 //  RunLoop-GCD
 //
 //  Created by Nikolay Gutorov on 3/12/20.
@@ -31,7 +31,8 @@ extension DemoTableViewController: UITableViewDelegate, UITableViewDataSource {
                 return
             }
             
-            // ********** CFRunLoop VS GCD **********
+            //MARK: - CFRunLoop VS GCD *
+            
             switch self.cellImageAssignMode {
                 
             case .GCD:
@@ -57,7 +58,6 @@ extension DemoTableViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.setCellConstraints()
         cell.titleLabel.text = "\(indexPath.row) - \(titleArray[indexPath.row])"
-        
         tableView.separatorInset = UIEdgeInsets(top: 0, left: cell.contentView.frame.height + 15, bottom: 0, right: 0)
         
         return cell
@@ -71,8 +71,9 @@ extension DemoTableViewController: UITableViewDelegate, UITableViewDataSource {
         self.infoTextView.text = "Scroll finished \n\n\(self.currentMainRunLoopMode())"
     }
     
+    //MARK: - Helpers
+    
     func currentMainRunLoopMode() -> String {
-        
         let rangeTemp = CFRunLoopGetMain().debugDescription.range(of: "current mode = ")
         let modeTemp = CFRunLoopGetMain().debugDescription[(rangeTemp?.upperBound...)!]
         let range = modeTemp.range(of: ",")

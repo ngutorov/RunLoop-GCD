@@ -22,26 +22,23 @@ extension UIViewController {
     }
     
     func setStatusBarColor(_ color: UIColor) {
+        
         if #available(iOS 13.0, *) {
-            
             let window = UIApplication.shared.windows.first
             let statusBar = UIView(frame: window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero)
             statusBar.backgroundColor = color
             window?.addSubview(statusBar)
             
         } else {
-            
             (UIApplication.shared.value(forKey: "statusBar") as? UIView)?.backgroundColor = color
         }
     }
     
     func showAlert(title: String, message: String, showCancel: Bool, okLabel: String, okActionClosure: @escaping () -> Void) {
         
-        // Running asynchronously - displaying the dialog box with no delay.
         DispatchQueue.main.async {
             
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            
             alert.addAction(UIAlertAction(title: okLabel, style: .default, handler: {(action) -> Void in okActionClosure() }))
             
             if showCancel {

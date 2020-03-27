@@ -1,5 +1,5 @@
 //
-//  TableVIewController.swift
+//  DemoTableViewController.swift
 //  RunLoop-GCD
 //
 //  Created by Nikolay Gutorov on 3/12/20.
@@ -15,50 +15,59 @@ class DemoTableViewController: UIViewController {
     let infoTextView = UITextView()
     let resetButton = UIButton()
     var tableView = UITableView()
-    var cellImageAssignMode: CellImageAssignMode = .None
     var titleArray = [String]()
     var thumbnailUrlArray = [String]()
     
-    // JSON file URL.
-    let sourceURL = "http://jsonplaceholder.typicode.com/photos"
+    var cellImageAssignMode: CellImageAssignMode = .None
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .lightGray
-        
         if ConnectionCheck.isConnectedToNetwork() {
             
-            addTableView()
-            addInfoTextView()
-            addResetButton()
-            getJsonData(withUrl: sourceURL)
+            prepareUI()
+            getJsonData(withUrl: JSON.sourceURL)
             
         } else {
             
-            showAlert(title: "No network connection!", message: "Please check your connection and restart the application.", showCancel: false, okLabel: "Try again") { [weak self] in
+            showAlert(title: "No network connection!",
+                      message: "Please check your connection and restart the application.",
+                      showCancel: false,
+                      okLabel: "Try again") { [weak self] in
                 self?.viewDidLoad()
             }
         }
     }
+}
+
+    //MARK: - Prepare UI
+    
+extension DemoTableViewController {
+    
+    func prepareUI() {
+        
+        self.view.backgroundColor = .lightGray
+        
+        addTableView()
+        setTableViewConstraints()
+        
+        addInfoTextView()
+        setInfoTextViewConstraints()
+        
+        addResetButton()
+    }
     
     func addTableView() {
-        
         self.view.addSubview(tableView)
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(DemoCustomCell.self, forCellReuseIdentifier: "cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.showsVerticalScrollIndicator = false
-        
-        setTableViewConstraints()
     }
     
     func addInfoTextView() {
-        
         self.view.addSubview(infoTextView)
-        
         infoTextView.frame = CGRect(x: 0, y: statusBarHeight, width: UIScreen.main.bounds.size.width, height: 113)
         infoTextView.backgroundColor = .lightGray
         infoTextView.clipsToBounds = false
@@ -72,14 +81,10 @@ class DemoTableViewController: UIViewController {
         infoTextView.isEditable = false
         infoTextView.isSelectable = false
         infoTextView.font = .systemFont(ofSize: 16)
-        
-        setInfoTextViewConstraints()
     }
     
     func addResetButton() {
-        
         self.view.addSubview(resetButton)
-        
         resetButton.layer.cornerRadius = 14
         resetButton.frame = CGRect(x: UIScreen.main.bounds.size.width-100, y: statusBarHeight+47, width: 80, height: 34)
         resetButton.backgroundColor = .white
@@ -89,6 +94,11 @@ class DemoTableViewController: UIViewController {
         
         resetButton.addTarget(self, action: #selector(resetTableView), for: .touchUpInside)
     }
+}
+
+//MARK: - Actions
+    
+extension DemoTableViewController {
     
     @objc func resetTableView() {
         

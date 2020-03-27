@@ -1,5 +1,5 @@
 //
-//  MainController+Constraints.swift
+//  InfoViewController+Constraints.swift
 //  RunLoop-GCD
 //
 //  Created by Nikolay Gutorov on 3/14/20.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-extension InfoController {
+extension InfoViewController {
     
     func setTitleLabelConstraints() {
         
-        // MARK: titleLabel constarints:
+        // MARK: - titleLabel constarints:
         
         NSLayoutConstraint(
             item: self.titleLabel,
@@ -47,7 +47,7 @@ extension InfoController {
     
     func setAboutTextViewConstraints() {
         
-        // MARK: aboutTextView constarints:
+        // MARK: - aboutTextView constarints:
         
         NSLayoutConstraint(
             item: self.aboutTextView,

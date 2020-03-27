@@ -12,20 +12,16 @@ class DemoCustomCell : UITableViewCell {
     
     let titleLabel : UILabel = {
         let title = UILabel()
-        
         title.textColor = .systemGray
         title.font = UIFont.systemFont(ofSize: 16)
         title.textAlignment = .left
-        
         return title
     }()
     
     let thumbnailImage : UIImageView = {
         let thumbnail = UIImageView()
-        
         thumbnail.contentMode = .scaleAspectFill
         thumbnail.clipsToBounds = true
-        
         return thumbnail
     }()
     

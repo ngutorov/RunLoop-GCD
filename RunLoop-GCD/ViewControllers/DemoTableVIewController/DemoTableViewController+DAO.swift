@@ -1,5 +1,5 @@
 //
-//  TableViewController+DAO.swift
+//  DemoTableViewController+DAO.swift
 //  RunLoop-GCD
 //
 //  Created by Nikolay Gutorov on 3/12/20.
@@ -58,7 +58,9 @@ extension DemoTableViewController {
                     self.thumbnailUrlArray.append(thumbnailUrl)
                 }
                 
-                DispatchQueue.main.async { self.tableView.reloadData() }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 
             } catch  {
                 print("Error trying to convert data to JSON!")

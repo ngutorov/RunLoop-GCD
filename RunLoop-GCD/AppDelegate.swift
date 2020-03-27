@@ -23,8 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.backgroundColor = .white
-            
-            self.window?.rootViewController = tabBarController
+            window?.rootViewController = tabBarController
         }
         
         return true
@@ -50,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+        
     }
 }
 

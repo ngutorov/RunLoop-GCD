@@ -1,5 +1,5 @@
 //
-//  TableViewController+Constraints.swift
+//  DemoTableViewController+Constraints.swift
 //  RunLoop-GCD
 //
 //  Created by Nikolay Gutorov on 3/12/20.
@@ -12,7 +12,7 @@ extension DemoTableViewController {
     
     func setTableViewConstraints() {
         
-        // MARK: tableView constarints:
+        // MARK: - tableView constarints:
         
         tableView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor).isActive = true
@@ -22,7 +22,7 @@ extension DemoTableViewController {
     
     func setInfoTextViewConstraints() {
         
-        // MARK: infoTextView constarints:
+        // MARK: - infoTextView constarints:
         
         infoTextView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         infoTextView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor).isActive = true

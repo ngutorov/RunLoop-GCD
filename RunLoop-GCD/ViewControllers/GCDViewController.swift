@@ -1,5 +1,5 @@
 //
-//  RunLoopController.swift
+//  GCDViewController.swift
 //  RunLoop-GCD
 //
 //  Created by Nikolay Gutorov on 3/11/20.
@@ -8,19 +8,19 @@
 
 import UIKit
 
-class RunLoopController: DemoTableViewController {
+class GCDViewController: DemoTableViewController {
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        self.cellImageAssignMode = .RunLoop
+        
+        self.cellImageAssignMode = .GCD
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setStatusBarColor(.lightGray)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
