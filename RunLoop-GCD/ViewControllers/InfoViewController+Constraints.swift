@@ -10,55 +10,22 @@ import UIKit
 
 extension InfoViewController {
     
-    func setTitleLabelConstraints() {
-        
-        // MARK: - titleLabel constarints:
-        
-        NSLayoutConstraint(
-            item: self.titleLabel,
-            attribute: NSLayoutConstraint.Attribute.top,
-            relatedBy: NSLayoutConstraint.Relation.lessThanOrEqual,
-            toItem: self.view,
-            attribute: NSLayoutConstraint.Attribute.top,
-            multiplier: 1,
-            constant: 70
-        ).isActive = true
-        
-        NSLayoutConstraint(
-            item: self.titleLabel,
-            attribute: NSLayoutConstraint.Attribute.left,
-            relatedBy: NSLayoutConstraint.Relation.lessThanOrEqual,
-            toItem: self.view,
-            attribute: NSLayoutConstraint.Attribute.left,
-            multiplier: 1,
-            constant: 10
-        ).isActive = true
-        
-        NSLayoutConstraint(
-            item: self.titleLabel,
-            attribute: NSLayoutConstraint.Attribute.right,
-            relatedBy: NSLayoutConstraint.Relation.lessThanOrEqual,
-            toItem: self.view,
-            attribute: NSLayoutConstraint.Attribute.right,
-            multiplier: 1,
-            constant: 10
-        ).isActive = true
-    }
-    
     func setAboutTextViewConstraints() {
         
         // MARK: - aboutTextView constarints:
         
+        // Top constraint.
         NSLayoutConstraint(
             item: self.aboutTextView,
             attribute: NSLayoutConstraint.Attribute.top,
             relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual,
-            toItem: self.titleLabel,
+            toItem: self.view,
             attribute: NSLayoutConstraint.Attribute.top,
             multiplier: 1,
             constant: 20
         ).isActive = true
         
+        // Left constraint.
         NSLayoutConstraint(
             item: self.aboutTextView,
             attribute: NSLayoutConstraint.Attribute.left,
@@ -69,6 +36,7 @@ extension InfoViewController {
             constant: 10
         ).isActive = true
         
+        // Right constraint.
         NSLayoutConstraint(
             item: self.aboutTextView,
             attribute: NSLayoutConstraint.Attribute.right,
@@ -77,16 +45,6 @@ extension InfoViewController {
             attribute: NSLayoutConstraint.Attribute.right,
             multiplier: 1,
             constant: 10
-        ).isActive = true
-        
-        NSLayoutConstraint(
-            item: self.aboutTextView,
-            attribute: NSLayoutConstraint.Attribute.bottom,
-            relatedBy: NSLayoutConstraint.Relation.lessThanOrEqual,
-            toItem: self.view,
-            attribute: NSLayoutConstraint.Attribute.bottom,
-            multiplier: 1,
-            constant: 0
         ).isActive = true
     }
 }
