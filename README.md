@@ -34,7 +34,7 @@ Absolutely same simple and very long TableViews on the left and on the right loa
 
 > **It's advisable to run the app on a real device!**
 
-![ScreenShot_01](https://github.com/ngutorov/RunLoop-GCD/blob/master/Demo/ScreenShot01.PNG)
-![ScreenShot_02](https://github.com/ngutorov/RunLoop-GCD/blob/master/Demo/ScreenShot02.PNG)
+![ScreenShot_01](https://github.com/ngutorov/RunLoop-GCD/blob/master/Demo/ScreenShot_01.PNG)
+![ScreenShot_02](https://github.com/ngutorov/RunLoop-GCD/blob/master/Demo/ScreenShot_02.PNG)
 
 **Copyright © 2019 Nikolay Gutorov. All rights reserved.**
