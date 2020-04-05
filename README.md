@@ -32,7 +32,7 @@ Just scroll fast deep down to 2-4XXX cells and than stop the scroll at once to s
 
 Absolutely same simple and very long TableViews on the left and on the right loading data from a network. But left one updates image data with Core Foundation CFRunLoopPerformBlock using manually set UITrackingRunLoopMode. Right one updates image data using GCD API to access Main Thread, basically delegating RunLoop mode choice to Grand Central Dispatch.
 
-**- It's advisable to run the app on a real device**
+> **It's advisable to run the app on a real device!**
 
 ![ScreenShot_01](https://github.com/ngutorov/RunLoop-GCD/blob/master/Demo/ScreenShot01.PNG)
 ![ScreenShot_02](https://github.com/ngutorov/RunLoop-GCD/blob/master/Demo/ScreenShot02.PNG)
