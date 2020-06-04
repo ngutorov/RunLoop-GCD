@@ -34,6 +34,7 @@ extension UIViewController {
         }
     }
     
+    // Show alert message.
     func showAlert(title: String, message: String, showCancel: Bool, okLabel: String, okActionClosure: @escaping () -> Void) {
         
         DispatchQueue.main.async {

@@ -35,7 +35,7 @@ extension DemoTableViewController: UITableViewDelegate, UITableViewDataSource {
             
             switch self.cellImageAssignMode {
                 
-            case .GCD:
+            case .GCD: // * GCD
                 DispatchQueue.main.async(execute: { () -> Void in
                     
                     let image = UIImage(data: data!)
@@ -43,7 +43,7 @@ extension DemoTableViewController: UITableViewDelegate, UITableViewDataSource {
                     self.infoTextView.text = "Updating image data with DispatchQueue  \n\n\(self.currentMainRunLoopMode())"
                 })
                 
-            case .RunLoop:
+            case .RunLoop: // * CFRunLoop
                 CFRunLoopPerformBlock(CFRunLoopGetMain(), RunLoop.Mode.tracking as CFTypeRef) {
                     
                     let image = UIImage(data: data!)
@@ -69,16 +69,6 @@ extension DemoTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.infoTextView.text = "Scroll finished \n\n\(self.currentMainRunLoopMode())"
-    }
-    
-    //MARK: - Helpers
-    
-    func currentMainRunLoopMode() -> String {
-        let rangeTemp = CFRunLoopGetMain().debugDescription.range(of: "current mode = ")
-        let modeTemp = CFRunLoopGetMain().debugDescription[(rangeTemp?.upperBound...)!]
-        let range = modeTemp.range(of: ",")
-        let mode = modeTemp[..<range!.lowerBound]
-        return("Current Main RunLoop mode is \n\(mode)")
     }
 }
 

@@ -18,7 +18,7 @@ class DemoTableViewController: UIViewController {
     var titleArray = [String]()
     var thumbnailUrlArray = [String]()
     
-    var cellImageAssignMode: CellImageAssignMode = .None
+    public var cellImageAssignMode: CellImageAssignMode = .None
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +34,14 @@ class DemoTableViewController: UIViewController {
                       message: "Please check your connection and restart the application.",
                       showCancel: false,
                       okLabel: "Try again") { [weak self] in
-                self?.viewDidLoad()
+                        self?.viewDidLoad()
             }
         }
     }
 }
 
-    //MARK: - Prepare UI
-    
+//MARK: - Prepare UI
+
 extension DemoTableViewController {
     
     func prepareUI() {
@@ -97,8 +97,10 @@ extension DemoTableViewController {
 }
 
 //MARK: - Actions
-    
+
 extension DemoTableViewController {
+    
+    // Helpers.
     
     @objc func resetTableView() {
         
@@ -106,6 +108,14 @@ extension DemoTableViewController {
         tableView.scrollToRow(at: indexPath, at: .top, animated: false)
         
         self.tableView.reloadData()
+    }
+    
+    func currentMainRunLoopMode() -> String {
+        let rangeTemp = CFRunLoopGetMain().debugDescription.range(of: "current mode = ")
+        let modeTemp = CFRunLoopGetMain().debugDescription[(rangeTemp?.upperBound...)!]
+        let range = modeTemp.range(of: ",")
+        let mode = modeTemp[..<range!.lowerBound]
+        return("Current Main RunLoop mode is \n\(mode)")
     }
 }
 
