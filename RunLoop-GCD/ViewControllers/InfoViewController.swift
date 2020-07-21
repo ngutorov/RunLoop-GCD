@@ -19,6 +19,8 @@ class InfoViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         setStatusBarColor(.white)
     }
     

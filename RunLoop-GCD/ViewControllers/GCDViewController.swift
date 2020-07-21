@@ -17,6 +17,8 @@ class GCDViewController: DemoTableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         setStatusBarColor(.lightGray)
     }
     
