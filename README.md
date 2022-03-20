@@ -2,9 +2,9 @@
 
 ## Access the Main Thread like a Boss! :sunglasses:
 
-Demo app you can play with and see the difference between using GCD dispatch_async approach versus CF RunLoop block execution on a Main Thread.
+The demo app you can play with and see the difference between using GCD dispatch_async approach versus CF RunLoop block execution on the Main Thread.
 
-Two very different APIs but the trick is that Core Foundation approach with CFRunLoopPerformBlock gives us opportunity to choose certain RunLoop Mode we want to use for our block. Especially in case of scrolling TableView it makes big difference since all scrolling happens with UITrackingRunLoopMode.
+Two very different APIs, but the trick is that the Core Foundation approach with CFRunLoopPerformBlock allows us to choose a specific RunLoop Mode we want to use for our block. Especially in the case of scrolling TableView, it makes a big difference since all scrolling happens with UITrackingRunLoopMode.
 
 
 ```swift
@@ -28,9 +28,9 @@ Two very different APIs but the trick is that Core Foundation approach with CFRu
 ```
 
 
-Just scroll fast deep down to 2-4XXX cells and than stop the scroll at once to see how "GCD" tab cells are still being assigned with colored images blinking VS "RunLoop" tab cells are being assigned with minimum visible UI lags.
+Using a fast scroll down to 2-4XXX cells, stop the scroll and see how "GCD" tab cells are assigned with colored images blinking versus "RunLoop" tab cells are assigned with minimal visible UI lags.
 
-Absolutely same simple and very long TableViews on the left and on the right loading data from a network. But left one updates image data with Core Foundation CFRunLoopPerformBlock using manually set UITrackingRunLoopMode. Right one updates image data using GCD API to access Main Thread, basically delegating RunLoop mode choice to Grand Central Dispatch.
+TableViews loading data from a network are identical on both sides of the screen. However, the left one uses UITrackingRunLoopMode to update image data with Core Foundation CFRunLoopPerformBlock manually. GCD API accesses the Main Thread, essentially delegating RunLoop mode selection to Grand Central Dispatch.
 
 > **It's advisable to run the app on a real device!**
 
