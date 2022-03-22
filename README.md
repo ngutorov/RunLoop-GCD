@@ -32,7 +32,7 @@ Using a fast scroll down to 2-4XXX cells, stop the scroll and see how `"GCD" tab
 
 TableViews loading data from a network are identical in both cases. However, the left tab uses `UITrackingRunLoopMode` to update image data with `Core Foundation CFRunLoopPerformBlock` manually. 
 
-The right tab uses `GCD API` to accesses the Main Thread, essentially delegating `RunLoop mode` selection to `Grand Central Dispatch`.
+The right tab uses GCD API to accesses the Main Thread, essentially delegating `RunLoop mode` selection to `Grand Central Dispatch`.
 
 > **It's advisable to run the app on a real device!**
 
