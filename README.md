@@ -30,7 +30,9 @@ Two very different APIs, but the trick is that the Core Foundation approach with
 
 Using a fast scroll down to 2-4XXX cells, stop the scroll and see how `"GCD" tab` cells are assigned with colored images blinking versus `"RunLoop" tab` cells are assigned with minimal visible UI lags.
 
-TableViews loading data from a network are identical in both cases. However, the left tab uses `UITrackingRunLoopMode` to update image data with `Core Foundation CFRunLoopPerformBlock` manually. The right tab uses `GCD API` to accesses the Main Thread, essentially delegating RunLoop mode selection to Grand Central Dispatch.
+TableViews loading data from a network are identical in both cases. However, the left tab uses `UITrackingRunLoopMode` to update image data with `Core Foundation CFRunLoopPerformBlock` manually. 
+
+The right tab uses `GCD API` to accesses the Main Thread, essentially delegating `RunLoop mode` selection to `Grand Central Dispatch`.
 
 > **It's advisable to run the app on a real device!**
 
